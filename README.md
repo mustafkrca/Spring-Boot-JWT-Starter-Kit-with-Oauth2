@@ -172,6 +172,11 @@
 cd Spring-Boot-JWT-Starter-Kitt-with-Oauth2</code></pre>
     </li>
     <li>
+      <p><strong>Insert default roles into the database 
+</strong></p>
+      <pre><code>INSERT INTO roles(name) VALUES('ROLE_USER'); INSERT INTO roles(name) VALUES('ROLE_ADMIN');</code></pre>
+    </li>
+    <li>
       <p><strong>Configure Application Properties</strong></p>
 <p>Modify <code>application.properties</code> to set up your database, JWT, and email configurations. <strong>Note:</strong> If you change your database connection settings, be sure to update the corresponding values in <code>docker-compose.yml</code> as well.</p>
       <pre><code># JWT Configuration
@@ -197,9 +202,13 @@ spring.rabbitmq.host=localhost
 spring.rabbitmq.port=5672
 spring.rabbitmq.username=guest
 spring.rabbitmq.password=guest
+
 rabbitmq.queue.email.name=emailQueue
 rabbitmq.exchange.email.name=emailExchange
 rabbitmq.binding.email.name=email.routing.key
+
+spring.security.oauth2.client.registration.google.client-id=your-client-id
+spring.security.oauth2.client.registration.google.client-secret=your-secret
 </code></pre>
     </li>
   </ol>
